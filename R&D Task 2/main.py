@@ -7,7 +7,7 @@ def pattern_detect(location):
     output = img.copy()
     gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     img_blur = cv2.medianBlur(gray, 5)
-    circles = cv.HoughCircles(gray, cv.HOUGH_GRADIENT, 1, 55,param1=100, param2 = 32, minRadius=0, maxRadius=0)
+    circles = cv.HoughCircles(gray, cv.HOUGH_GRADIENT, 1, 95,param1=100, param2 = 32, minRadius=0, maxRadius=0)
     detected_circles = np.uint16(np.around(circles))
     for (x, y ,r) in detected_circles[0, :]:
         cv.circle(output, (x, y), r, (0, 0, 255), 2)
